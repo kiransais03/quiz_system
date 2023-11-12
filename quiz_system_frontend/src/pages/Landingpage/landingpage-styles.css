@@ -1,0 +1,9 @@
+.landingmain {
+        margin:0 auto;
+        min-height: 65vh;
+        background-color:blue;
+        width:80%;
+        margin-top: 40px;
+        border-radius:30px;
+    background: linear-gradient(69deg, rgba(160,82,255,1) 0%, rgba(244,81,0,0.865983893557423) 88%);
+}
