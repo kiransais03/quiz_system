@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{useEffect} from 'react';
 import Dropdown from '@mui/joy/Dropdown';
 import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
@@ -13,6 +13,14 @@ export default function Navlinks_right() {
   let dispatch = useDispatch();
 
   let token = useSelector((currState)=>{return currState.token})
+
+  useEffect(()=>{
+
+    if(localStorage.getItem('token')) {
+             dispatch(usertokenAdd(localStorage.getItem('token')));
+              dispatch(emailAdd(localStorage.getItem('email')));
+    }
+  },[])
 
   const handleLogout = ()=>{
     dispatch(usertokenAdd(""));

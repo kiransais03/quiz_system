@@ -13,6 +13,8 @@ import {useSelector,useDispatch} from "react-redux";
 import { usertokenAdd,isLoading } from './redux/actions/userActionstatus';
 import Errorpage from './pages/Errorpage/Errorpage';
 import Landingpage from './pages/Landingpage/Landingpage';
+import Coursespage from './pages/Coursespage/Coursespage';
+import Lessonspage from './pages/Lessonspage/Lessonspage';
 
 function App() {
 
@@ -30,9 +32,14 @@ function App() {
       <button type='button' onClick={()=>{dispatch(isLoading(false))}}>loading false</button>  */}
       <Routes>
              <Route path="/" element={<Landingpage/>}/>
+             <Route path="/home" element={<Landingpage/>}/>
          <Route element={<Privateroutes/>}>
             <Route path='/dashboard' element={<div>HI this is dashboard</div>}/>
-            <Route path='/courses' element={<div>HI this is courses</div>}/>
+
+            <Route path='/courses' element={<Coursespage/>}/>
+            <Route path='/courses/*' element={<Lessonspage/>}/>
+            
+
             <Route path='/learninglab' element={<div>HI this is learninglab</div>}/>
             <Route path='/achievements' element={<div>HI this is achievements</div>}/>
           </Route>

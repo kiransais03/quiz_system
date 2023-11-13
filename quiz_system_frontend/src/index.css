@@ -14,11 +14,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: radial-gradient(circle, transparent 20%, #d9d9d9 20%, #d9d9d9 80%, transparent 80%, transparent) 0% 0% / 52px 52px, radial-gradient(circle, transparent 20%, #d9d9d9 20%, #d9d9d9 80%, transparent 80%, transparent) 26px 26px / 52px 52px, linear-gradient(#cdb9ab 2.5px, transparent 2.5px) 0px -1.25px / 26px 26px, linear-gradient(90deg, #cdb9ab 2.5px, #d9d9d9 2.5px) -1.25px 0px / 26px 26px #d9d9d9;
-background-size: 52px 52px, 52px 52px, 26px 26px, 26px 26px;
-background-color: #d9d9d9;
-
-
+  background-image: radial-gradient(#474bff 4px, transparent 4px), radial-gradient(#474bff 4px, transparent 4px);
+  background-size: 63px 63px;
+  background-position: 0 0, 31.5px 31.5px;
+  background-color: #47d3ff;
 }
 
 code {
