@@ -6,7 +6,7 @@ function Breadcrumb({pagesarr,currpage}) {
   return (
       <nav style={{ "--bs-breadcrumb-divider": ">" }} aria-label="breadcrumb">
         <ol className="breadcrumb">
-        <span>⇨--</span>
+        <span style={{fontSize:"20px"}}>⇨</span>
           {pagesarr.map((element,index)=>{
             let capitalletter = element.charAt(0).toUpperCase()+element.slice(1);
             return (<li key={index} className="breadcrumb-item">{`${capitalletter} > `}</li>)

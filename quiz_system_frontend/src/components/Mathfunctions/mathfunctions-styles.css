@@ -1,0 +1,22 @@
+.ui {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.uielements {
+  width: 70px;
+  height: 40px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  color: black;
+  font-weight: 600;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid black;
+}
+

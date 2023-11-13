@@ -6,7 +6,7 @@ import {BsFillFileEarmarkPlayFill} from "react-icons/bs";
 import {SiSololearn} from "react-icons/si";
 import {GrAchievement} from "react-icons/gr";
 import Navlinks_centre from '../Navlinks_centre/Navlinks_centre';
-import logo from "../../images/tinythikerslogo.png"
+import logo from "../../images/tinylearnerslogo.png"
 import Navlinks_right from '../Navlinks_right/Navlinks_right';
 
 function Navbar() {

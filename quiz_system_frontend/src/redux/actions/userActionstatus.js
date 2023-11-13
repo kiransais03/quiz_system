@@ -1,4 +1,4 @@
-import { TOKEN,LOADING,EMAIL } from "./actionTypes";
+import { TOKEN,LOADING,EMAIL,SAVEDQUES } from "./actionTypes";
 
 
 export const usertokenAdd = (tokendata)=>{
@@ -16,4 +16,10 @@ export const emailAdd = (status)=>{
     return {  type : EMAIL,
                 payload : status
     }
+}
+
+export const savedquesAdd = (obj)=>{
+        return {  type : SAVEDQUES,
+                  payload : obj
+        }
 }
