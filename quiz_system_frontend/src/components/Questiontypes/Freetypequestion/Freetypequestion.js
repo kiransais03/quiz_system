@@ -26,7 +26,7 @@ function Freetypequestion({q,ans,setNextButtondisabled}) {
     }
     else if(attempts===0)
     {
-       toast.error("No attempts limit exceeded,Start test again.Go To Courses");
+       toast.error("No attempts left.Limit exceeded,Start test again.Go To Courses");
        let audio1 = document.createElement('audio');
       document.body.appendChild(audio1);
       audio1.src=noattempts;
@@ -41,7 +41,8 @@ function Freetypequestion({q,ans,setNextButtondisabled}) {
        let audio1 = document.createElement('audio');
        document.body.appendChild(audio1);
        audio1.src=correct;
-       audio1.play()
+       audio1.play();
+       return ;
     }
     else {
       toast.error("Entered answer is wrong");

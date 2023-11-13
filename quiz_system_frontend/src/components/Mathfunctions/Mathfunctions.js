@@ -4,14 +4,13 @@ import "./mathfunctions-styles.css"
 const Mathfunctions = ({calstring,setCalstring})=>{
    let elemarr = ['/','*','-','+','^','$','℃','℉','π','√','∛','∽','=','(',')','[',']','±'];
 
-   function clickfunc(e) {
-
+function clickfunc(e) {
     e.target.style.border="1px solid red"
     let clickeddiv = e.target;
     setTimeout((e)=>{clickeddiv.style.border="1px solid black";console.log("ok")},200);
 
     let selectedval = e.target.innerText;
-    setCalstring(calstring+selectedval);
+    setCalstring(selectedval);
    }
 
     return (

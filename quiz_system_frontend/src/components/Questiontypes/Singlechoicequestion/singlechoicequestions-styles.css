@@ -1,0 +1,25 @@
+.radiobuttons {
+    display: flex;
+    justify-content: space-between;
+    width: 50rem; 
+  }
+  
+  .singlechoicetype {
+    width: 20px;
+  }
+  
+
+  .radiobuttons label {
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    border: 2px solid #ccc; 
+    border-radius: 10px;
+  }
+  
+  
+  
+  
+  

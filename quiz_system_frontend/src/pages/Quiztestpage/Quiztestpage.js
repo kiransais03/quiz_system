@@ -94,7 +94,7 @@ let questionsarr =
   {type : "fill",q : "Q2. Complete the pattern",ask : [345,"","",350], ans :"calculate"},
   {type : "sortimages",q : "Q3. Sort the elements in correct order",ask : "Match images with names(drag and drop)",ans : ["html","css","react"]},
   {type : "sorttext", q : "Q4. Sort options in correct order",ask :["A.Are","B.How","C.You?"], ans:["B.How","A.Are","C.You?"] },
-  {type : "singlechoice",q: "Q5. Choose the right option", ask:"Sun rises in East",ans : "Correct"},
+  {type : "singlechoice",q: "Q5. Choose the right option", ask:"Sun rises in East",ans : "correct"},
   {type : "checkbox",q : "Q6. Select the numbers that are divisible by 2?",ask : [3,4,12,59,64],ans : [4,12,64]}
 ]
 
@@ -151,11 +151,11 @@ function switchQuestioncomponent (currentquestionindex) {
    switch(questionsarr[currentquestionindex].type)
    {
     case "freetype" : return <Freetypequestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ans={questionsarr[currentquestionindex].ans} />
-    case "fill"  : return <Fillquestion q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
-    case "sortimages" : return <Sortimagesquestion q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
-    case "sorttext" : return<Sorttextquestion q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
-    case "singlechoice" : return <Singlechoicequestion q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
-    case "checkbox" : return <Checkboxquestion q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
+    case "fill"  : return <Fillquestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
+    case "sortimages" : return <Sortimagesquestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
+    case "sorttext" : return<Sorttextquestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
+    case "singlechoice" : return <Singlechoicequestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
+    case "checkbox" : return <Checkboxquestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
     default : return "wrong question type";
    }
 }
@@ -171,9 +171,9 @@ function switchQuestioncomponent (currentquestionindex) {
        </div>
 
      <div className='questiondiv d-flex justify-content-between column-gap-5'>
-         <div>
+         {/* <div> */}
            {currentquestionindex>=0 && switchQuestioncomponent(currentquestionindex)}
-         </div>
+         {/* </div> */}
      </div>
 
      <div className='d-flex justify-content-between'>
