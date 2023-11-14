@@ -11,7 +11,7 @@ import "./quiztestpage-styles.css"
 import { toast } from 'react-toastify';
 import completed from "../../audio/mixkit-festive-melody-audio-2985.wav";
 import {useDispatch,useSelector} from "react-redux";
-import { savedquesAdd } from '../../redux/actions/userActionstatus';
+import { savedquesAdd, testprogressAdd } from '../../redux/actions/userActionstatus';
 
 function Quiztestpage() {
 
@@ -20,16 +20,33 @@ function Quiztestpage() {
 
   let reduxdata = useSelector((currState)=>{return currState});
 
-  console.log("Reduxdata",reduxdata)
-
+  console.log("Reduxdata",reduxdata);
   
   let [currentquestionindex,setCurrentquestionindex] = useState(0);
+  
+  useEffect(()=>{
+    if(localStorage.getItem('updatequesIndex'))
+    {
+      let tempind = localStorage.getItem('updatequesIndex')
+       setCurrentquestionindex(tempind);
+       localStorage.removeItem('updatequesIndex')
+    }
+  },[])
+
+  
   
   let [prevButtondisabled,setPrevButtondisabled] = useState(true);
   
   let [nextButtondisabled,setNextButtondisabled] = useState(true);
   
   let [flagbuttonclicked,setFlagbuttonclicked] = useState(false);
+
+
+  useEffect(()=>{
+    let testobj = {location : pathname,quesno : currentquestionindex}
+     localStorage.setItem('testprogress',JSON.stringify(testobj));
+     dispatch(testprogressAdd(testobj))
+  },[currentquestionindex])
 
 
   useEffect(()=>{
@@ -89,6 +106,7 @@ function Quiztestpage() {
     }
   }
 
+  //Questions data array
 let questionsarr =
 [ {type : "freetype", q : "Q1. 5+4=?",ans : "9"},
   {type : "fill",q : "Q2. Complete the pattern",ask : [345,"","",350], ans :"calculate"},
@@ -140,11 +158,12 @@ const handleNextClick = () => {
   if((currentquestionindex+1) === questionsarr.length)
   {
     setNextButtondisabled(true);
-    toast.success("Successfully completed Lesson Practice");
+    toast.success("Successfully completed Lesson Practice Test");
+    localStorage.removeItem('testprogress');
     let audio1 = document.createElement('audio');
        document.body.appendChild(audio1);
        audio1.src=completed;
-       audio1.play()
+       audio1.play();
   }
 };
 

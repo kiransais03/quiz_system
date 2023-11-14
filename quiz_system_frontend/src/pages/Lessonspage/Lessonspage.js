@@ -15,6 +15,7 @@ function Lessonspage() {
   return (
     <div style={{backgroundColor:"whitesmoke",marginTop:"25px",height:"80vh",overflow:"scroll"}}>
      <Breadcrumb pagesarr={newLocationarr} currpage={currpageLocation}/>
+     <hr/>
      {locationarr.length>=4 ?<Quiztestpage/> :<Lessonspagedisplay currpageLocation={currpageLocation}/>}
     </div>
   )

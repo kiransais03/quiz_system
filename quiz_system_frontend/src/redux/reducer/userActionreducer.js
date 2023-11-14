@@ -1,10 +1,11 @@
-import { LOADING,TOKEN,EMAIL,SAVEDQUES } from "../actions/actionTypes"
+import { LOADING,TOKEN,EMAIL,SAVEDQUES, TESTPROGRESS } from "../actions/actionTypes"
 
 const intialState = {
     token : "",
     loading : false,
     email:"",
-    savedques : {location : "",pagenos :[]}
+    savedques : {location : "",pagenos :[]},
+    testprogress : {location : "",quesno : ""}
 }
 
 const userActionreducer = (state = intialState,action)=>{
@@ -18,6 +19,8 @@ const userActionreducer = (state = intialState,action)=>{
     case EMAIL : return ({...state,email:action.payload})
 
     case SAVEDQUES : return ({...state,savedques:action.payload})
+
+    case TESTPROGRESS : return ({...state,testprogress : action.payload})
 
     default : return (state);
    }

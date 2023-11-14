@@ -46,7 +46,7 @@ function Fillquestion({q,ask,ans,setNextButtondisabled}) {
     setAttempts((attempts)=>{return attempts-1});
     for(let x in ansobj)
     { 
-      if(ans !=="calculate" || ansobj[x]<=ask[0] || ansobj[x]>=ask[ask.length-1])
+      if(ans !=="calculate" || ansobj[x]<=ask[0] || ansobj[x]>=ask[ask.length-1] || ansobj[0]===ansobj[1])
       {
         toast.error("Entered answer is wrong");
         audioplayer(wrong)
