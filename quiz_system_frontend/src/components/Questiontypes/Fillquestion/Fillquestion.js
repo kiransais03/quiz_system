@@ -9,29 +9,22 @@ import "./fillquestion-styles.css"
 
 function Fillquestion({q,ask,ans,setNextButtondisabled}) {
 
-  let [ansobj,setAnsobj] = useState({});
-
+  let [ansobj,setAnsobj] = useState("");
 
   let [attempts,setAttempts] = useState(6);
 
   let [focusedBlank,setFocusedBlank] = useState("");
 
+  function audioplayer (song) {
+    let audio1 = document.createElement('audio');
+    document.body.appendChild(audio1);
+    audio1.src=song;
+    audio1.play()
+  }
+
   let [calstring,setCalstring]=useState("");
 
-
-  // useEffect(()=>{
-  //   console.log("focused",calstring,focusedBlank)
-  //   if(focusedBlank>=0 && focusedBlank<ask.length)
-  //   {
-  //     console.log("hih")
-  //     let str = calstring;
-  //     setAnsobj((currState)=>{return({...currState,[focusedBlank]:calstring})})
-  //     setCalstring("")
-  //     console.log(ansobj,"ansobj")
-  //   }
-
-  // },[calstring])
-
+  // console.log(calstring,"fron math functions")
 
   function handleCheck () {
 
@@ -40,20 +33,14 @@ function Fillquestion({q,ask,ans,setNextButtondisabled}) {
       if(!ansobj[x])
       {
         toast.error("Answer should not be empty");
-        let audio1 = document.createElement('audio');
-        document.body.appendChild(audio1);
-        audio1.src=wrong;
-        audio1.play()
+        audioplayer(wrong)
         return;
       }
     }
     if(attempts===0)
     {
        toast.error("No attempts left.Limit exceeded,Start test again.Go To Courses");
-       let audio1 = document.createElement('audio');
-      document.body.appendChild(audio1);
-      audio1.src=noattempts;
-      audio1.play()
+       audioplayer(noattempts)
        return ;
     }
     setAttempts((attempts)=>{return attempts-1});
@@ -62,28 +49,28 @@ function Fillquestion({q,ask,ans,setNextButtondisabled}) {
       if(ans !=="calculate" || ansobj[x]<=ask[0] || ansobj[x]>=ask[ask.length-1])
       {
         toast.error("Entered answer is wrong");
-        let audio1 = document.createElement('audio');
-         document.body.appendChild(audio1);
-         audio1.src=wrong;
-         audio1.play();
+        audioplayer(wrong)
          return ;
       }
     }
       setNextButtondisabled(false);
        toast.success("Answer is correct")
-       let audio1 = document.createElement('audio');
-       document.body.appendChild(audio1);
-       audio1.src=correct;
-       audio1.play()
+       audioplayer(correct)
        return ;
   }
 
 
   const handleChange = (e)=>{
     let {id,value} = e.target;
+    if(ansobj==="")
+    {
+      setAnsobj({[id]:value})
+    }
+    else {
     setAnsobj((currState)=>{
       return ({...currState,[id]:value})
     })
+  }
   }
 
 
@@ -94,9 +81,9 @@ function Fillquestion({q,ask,ans,setNextButtondisabled}) {
       <h2>{q}</h2>
        Answer <br/>
        {ask.map((elem,index)=>{
-          if(elem ==="")
-          {
-            return (<input type='text' onFocus={()=>{console.log(index,"ind");setFocusedBlank(index)}} onBlur={()=>{setFocusedBlank("")}} key={index} id={index} className='filltypeinput' value={ansobj[index]} onChange={handleChange}/>)
+          if(elem ==="") {
+          //  onBlur={()=>{setFocusedBlank("")}}
+            return (<input type='text'  key={index} id={index} onFocus={()=>{console.log(index,"ind");setFocusedBlank(index)}} className='filltypeinput' value={ansobj[index]} onChange={handleChange}/>)
           }
           else {
             return(<h3 key={index} style={{display:"inline"}}>{elem}</h3>)

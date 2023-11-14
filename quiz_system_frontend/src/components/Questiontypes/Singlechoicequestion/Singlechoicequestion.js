@@ -12,24 +12,25 @@ function Singlechoicequestion({q,ask,ans,setNextButtondisabled}) {
 
   let [radioval,setRadioval] = useState("");
 
+  function audioplayer (song) {
+    let audio1 = document.createElement('audio');
+    document.body.appendChild(audio1);
+    audio1.src=song;
+    audio1.play()
+  }
+
 
   function handleCheck () {
     if(radioval === "")
     {
       toast.error("Answer should not be empty");
-      let audio1 = document.createElement('audio');
-      document.body.appendChild(audio1);
-      audio1.src=wrong;
-      audio1.play()
+      audioplayer(wrong);
       return;
     }
     else if(attempts===0)
     {
        toast.error("No attempts left.Limit exceeded,Start test again.Go To Courses");
-       let audio1 = document.createElement('audio');
-      document.body.appendChild(audio1);
-      audio1.src=noattempts;
-      audio1.play()
+       audioplayer(noattempts);
        return ;
     }
     setAttempts((attempts)=>{return attempts-1});
@@ -37,18 +38,12 @@ function Singlechoicequestion({q,ask,ans,setNextButtondisabled}) {
     {
        setNextButtondisabled(false);
        toast.success("Answer is correct")
-       let audio1 = document.createElement('audio');
-       document.body.appendChild(audio1);
-       audio1.src=correct;
-       audio1.play();
+       audioplayer(correct);
        return ;
     }
     else {
       toast.error("Entered answer is wrong");
-      let audio1 = document.createElement('audio');
-       document.body.appendChild(audio1);
-       audio1.src=wrong;
-       audio1.play();
+      audioplayer(wrong);
        return ;
     }
   }

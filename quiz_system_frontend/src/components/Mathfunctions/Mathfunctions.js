@@ -10,7 +10,7 @@ function clickfunc(e) {
     setTimeout((e)=>{clickeddiv.style.border="1px solid black";console.log("ok")},200);
 
     let selectedval = e.target.innerText;
-    setCalstring(selectedval);
+    setCalstring((currState)=>{return currState+selectedval});
    }
 
     return (

@@ -13,7 +13,7 @@ function Coursespage() {
     let newLocationarr = locationarr.slice(1,locationarr.length-1)
     console.log(location,locationarr,currpageLocation,newLocationarr)
   return (
-    <div style={{backgroundColor:"cornsilk",marginTop:"25px",height:"80vh",overflow:"scroll"}}>
+    <div style={{backgroundColor:"whitesmoke",marginTop:"25px",height:"80vh",overflow:"scroll"}}>
      <Breadcrumb pagesarr={newLocationarr} currpage={currpageLocation}/>
      <Coursecarddisplay/>
     </div>

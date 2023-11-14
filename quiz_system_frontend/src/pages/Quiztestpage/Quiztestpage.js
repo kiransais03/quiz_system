@@ -92,7 +92,7 @@ function Quiztestpage() {
 let questionsarr =
 [ {type : "freetype", q : "Q1. 5+4=?",ans : "9"},
   {type : "fill",q : "Q2. Complete the pattern",ask : [345,"","",350], ans :"calculate"},
-  {type : "sortimages",q : "Q3. Sort the elements in correct order",ask : "Match images with names(drag and drop)",ans : ["html","css","react"]},
+  {type : "sortimages",q : "Q3. Sort the elements in correct order",ask : "Match images with names(drag and drop)",imagesarr : ["https://s3.amazonaws.com/media-p.slid.es/uploads/657563/images/3629725/react.png","https://ojt.com/wp-content/uploads/2021/08/python-programming-language.png","https://cdn.icon-icons.com/icons2/2108/PNG/512/java_icon_130901.png"],options:['Java','Python','React'],ans: ["React","Python","Java"]},
   {type : "sorttext", q : "Q4. Sort options in correct order",ask :["A.Are","B.How","C.You?"], ans:["B.How","A.Are","C.You?"] },
   {type : "singlechoice",q: "Q5. Choose the right option", ask:"Sun rises in East",ans : "correct"},
   {type : "checkbox",q : "Q6. Select the numbers that are divisible by 2?",ask : [3,4,12,59,64],ans : [4,12,64]}
@@ -131,6 +131,7 @@ const handleNextClick = () => {
   if (currentquestionindex < questionsarr.length - 1) {
     setCurrentquestionindex(currentquestionindex + 1);
     manageFlagstate(currentquestionindex + 1);
+    setNextButtondisabled(true);
   }
   if((currentquestionindex+1)>0)
   {
@@ -152,7 +153,7 @@ function switchQuestioncomponent (currentquestionindex) {
    {
     case "freetype" : return <Freetypequestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ans={questionsarr[currentquestionindex].ans} />
     case "fill"  : return <Fillquestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
-    case "sortimages" : return <Sortimagesquestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
+    case "sortimages" : return <Sortimagesquestion setNextButtondisabled={setNextButtondisabled} imagesarr={questionsarr[currentquestionindex].imagesarr} options={questionsarr[currentquestionindex].options} q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
     case "sorttext" : return<Sorttextquestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
     case "singlechoice" : return <Singlechoicequestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
     case "checkbox" : return <Checkboxquestion setNextButtondisabled={setNextButtondisabled} q={questionsarr[currentquestionindex].q} ask={questionsarr[currentquestionindex].ask} ans={questionsarr[currentquestionindex].ans}/>
