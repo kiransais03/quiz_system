@@ -4,6 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
 import { useLocation } from 'react-router-dom'
 import Coursecard from '../../components/Coursecard/Coursecard'
 import Coursecarddisplay from '../../components/Coursecarddispaly/Coursecarddisplay'
+import Flagmenu from '../../components/Flagmenu/Flagmenu'
 
 function Coursespage() {
 

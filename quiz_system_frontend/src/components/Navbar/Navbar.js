@@ -8,6 +8,7 @@ import {GrAchievement} from "react-icons/gr";
 import Navlinks_centre from '../Navlinks_centre/Navlinks_centre';
 import logo from "../../images/tinylearnerslogo.png"
 import Navlinks_right from '../Navlinks_right/Navlinks_right';
+import Flagmenu from '../Flagmenu/Flagmenu';
 
 function Navbar() {
   return (
@@ -16,7 +17,8 @@ function Navbar() {
       <div className='navlinks_left'>
          <Link to="/">
            <img src={logo} alt="logo" style={{borderRadius:"20px",width:"13rem",height:"5rem"}}/>
-        </Link>
+        </Link> 
+      <div style={{padding:"10px"}}><Flagmenu/></div>
       </div>
 {/* Navlinks Centre */}
       <div className={`${styles.navlinks_centre} d-flex justify-content-center flex-wrap flex-row column-gap-4`} >
@@ -34,16 +36,3 @@ function Navbar() {
 }
 
 export default Navbar
-
-
-
-// <div className='dashboard'>
-//             <NavLink to="/dashboard">
-//                 <div className="d-flex justify-content-center align-items-center flex-column">
-//                     <div>
-//                    <AiOutlineAppstore style={{width:"30px",height:"30px"}}/> </div>
-//                     <p>Dashboard</p>
-//                 </div>
-//             </NavLink>
-
-//         </div>

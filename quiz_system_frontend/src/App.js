@@ -16,6 +16,7 @@ import Landingpage from './pages/Landingpage/Landingpage';
 import Coursespage from './pages/Coursespage/Coursespage';
 import Lessonspage from './pages/Lessonspage/Lessonspage';
 import Learninglabpage from './pages/Learninglabpage/Learninglabpage';
+import Flagmenu from './components/Flagmenu/Flagmenu';
 
 function App() {
 
@@ -35,14 +36,14 @@ function App() {
              <Route path="/" element={<Landingpage/>}/>
              <Route path="/home" element={<Landingpage/>}/>
          <Route element={<Privateroutes/>}>
-            <Route path='/dashboard' element={<div className='emptypages d-flex justify-content-center align-items-center flex-column' style={{  }}><div>Hi this is Dashboard.Navigate to Courses<Fullpageloader/></div> </div>}/>
+            <Route path='/dashboard' element={<div className='emptypages d-flex justify-content-center align-items-center flex-column'><div>Hi this is Dashboard.Navigate to Courses<Fullpageloader/></div> </div>}/>
 
             <Route path='/courses' element={<Coursespage/>}/>
             <Route path='/courses/*' element={<Lessonspage/>}/>
             
 
             <Route path='/learninglab' element={<Learninglabpage/>}/>
-            <Route path='/achievements' element={<div className='emptypages d-flex justify-content-center align-items-center flex-column' style={{  }}><div>Hi this is Achievements page.Navigate to Courses<Fullpageloader/></div> </div>}/>
+            <Route path='/achievements' element={<div className='emptypages d-flex justify-content-center align-items-center flex-column'><div>Hi this is Achievements page.Navigate to Courses<Fullpageloader/></div> </div>}/>
           </Route>
           <Route element={<Privateloginsignuproutes/>}>
              <Route path="signup" element={<Signuppage/>}/>

@@ -16,9 +16,9 @@ function Learninglabpage() {
     console.log(location,locationarr,currpageLocation,newLocationarr)
 
   return (
-    <div className='learninglab' style={{backgroundColor:"whitesmoke",marginTop:"25px",height:"80vh"}}>
+    <div className='learninglab' style={{backgroundColor:"whitesmoke",marginTop:"25px",paddingLeft:"30px",height:"80vh"}}>
      <Breadcrumb pagesarr={newLocationarr} currpage={currpageLocation}/>
-     <hr/>
+     
      <h2 className='headingtest'>Practice Tests Inprogress :</h2>
      <hr/>
     {localStorage.getItem('testprogress')?<Testinprogresscard testprogress={testprogress}/>:"No tests are incomplete"}
